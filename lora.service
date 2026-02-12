@@ -1,0 +1,13 @@
+[Unit]
+Description=Paipayales Lora Service
+After=network.target
+
+[Service]
+Type=idle
+Restart=always
+User=pi
+WorkingDirectory=/home/pi/
+ExecStart=sh -c '/usr/bin/python3 -u /home/pi/WaterComsumptionPaipayales/lora.py 2>&1 | tee /home/pi/WaterComsumptionPaipayales/log.txt'
+
+[Install]
+WantedBy=multi-user.target
